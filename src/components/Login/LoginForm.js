@@ -1,13 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
 import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import classNames from "classnames";
-import Avatar from "@material-ui/core/Avatar";
-
-import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
 
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -18,9 +14,15 @@ import FbLogo from '../../Assets/fb.png';
 import TwitterLogo from '../../Assets/twitter.png'
 import localStyles from "./LoginForm.css";
 
-function SimpleCard(props) {
-  const { classes } = props;
+class LoginCard extends Component{
+  emailValid (e){
+    console.log(e.target.value)
+  }
+ 
+  render(){
+
   return (
+    
     <Card>
       <CardContent classes={localStyles.Card}>
         <div className={classNames(localStyles.ImgCont)}>
@@ -50,6 +52,7 @@ function SimpleCard(props) {
               localStyles.InputField,
               localStyles.InputIncorrect
             )}
+            onChange={(event)=>this.emailValid(event)}
             type="email"
             name="email"
             autoComplete="email"
@@ -72,8 +75,8 @@ function SimpleCard(props) {
           control={<Checkbox className={classNames(localStyles.Checkbox)} />}
           label="Remember me"
         />
-        <Button variant="outlined" color="primary">
-          Primary
+        <Button variant="outlined" color="primary" href="./dashboard">
+          Login
         </Button>
       </div>
 
@@ -86,6 +89,7 @@ function SimpleCard(props) {
       </div>
     </Card>
   );
+            }
 }
 
-export default SimpleCard;
+export default LoginCard;
