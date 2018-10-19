@@ -6,8 +6,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import classNames from 'classname'
-import './LoginForm.css'
+import classNames from 'classnames'
+import localStyles from './LoginForm.css'
 const styles = {
   card: {
     minWidth: 275,
@@ -31,7 +31,7 @@ function SimpleCard(props) {
 
   return (
     <Card className={classes.card}>
-      <CardContent className={classNames(styles.title)}>
+      <CardContent className={classNames(localStyles.title)}>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
          Admin Login
         </Typography>
