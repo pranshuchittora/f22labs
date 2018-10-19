@@ -1,3 +1,7 @@
+body {
+  height: 100vh;
+  background: linear-gradient(180deg, #20da29 0%, #0fa016 50%, #ffffff 50%);
+}
 .card {
   text-align: center;
   align-items: center;
@@ -17,16 +21,14 @@
   height: 100px;
 }
 .InputField {
-  width: 90%;
+  width: 100%;
 }
 input:focus,
 textarea:focus,
 select:focus {
   outline: none;
 }
-.InputIncorrect {
-  color: #d11e1e;
-}
+
 
 .BtnCont {
   width: 90%;
@@ -49,4 +51,19 @@ select:focus {
 .SocialIcon {
   width: 40px;
   display: inline;
+}
+
+
+
+.InputCorrect {
+  background: #ddffe0;
+}
+.InputIncorrect {
+  background: #ffdede;
+}
+.InputStatic{
+  background: #ffffff;
+}
+.InputNull{
+
 }
