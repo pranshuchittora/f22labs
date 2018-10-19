@@ -1,3 +1,7 @@
+body {
+  height: 100vh;
+  background: linear-gradient(180deg, #20da29 0%, #0fa016 50%, #ffffff 50%);
+}
 .card {
   text-align: center;
   align-items: center;
