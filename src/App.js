@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Login from "./components/Login/LoginForm";
+import Dashboard from "./components/Dashboard/Dashboard"
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import Grid from "@material-ui/core/Grid";
@@ -13,8 +14,8 @@ const LoginPage = () => (
   </Grid>
 );
 
-const Dashboard = () => (
-  <h1>Dashboard</h1>
+const DashboardPage = () => (
+<Dashboard />
 )
 
 class App extends Component {
@@ -23,7 +24,7 @@ class App extends Component {
       <Router>
     <div>
       <Route exact path="/" render={() => <LoginPage />} />
-      <Route path="/dashboard" render={() => <Dashboard />} />
+      <Route path="/dashboard" render={() => <DashboardPage />} />
     </div>
     </Router>)
   }
