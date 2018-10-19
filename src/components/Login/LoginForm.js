@@ -17,12 +17,18 @@ import localStyles from "./LoginForm.css";
 class LoginCard extends Component {
   state = {
     isInteracted: false,
-    isEmailValid: false
+    isEmailValid: false,
+    isPasswordValid: false
   };
 
   validateEmailRegexp(email) {
-    var re = /\S+@\S+\.\S+/;
-    return re.test(String(email).toLowerCase());
+    let regexp = /\S+@\S+\.\S+/;
+    return regexp.test(String(email).toLowerCase());
+  }
+  validPasswordRegExp(password) {
+    let regexp = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+
+    return regexp.test(password);
   }
   emailValid(e) {
     this.setState({ isInteracted: true });
@@ -31,6 +37,15 @@ class LoginCard extends Component {
       this.setState({ isEmailValid: true });
     } else {
       this.setState({ isEmailValid: false });
+    }
+  }
+  passwordValid(e) {
+    this.setState({ isInteracted: true });
+    let validationRes = this.validPasswordRegExp(e.target.value);
+    if (validationRes) {
+      this.setState({ isPasswordValid: true });
+    } else {
+      this.setState({ isPasswordValid: false });
     }
   }
 
@@ -57,6 +72,7 @@ class LoginCard extends Component {
           </Typography>
 
           <div className={classNames(localStyles.center)}>
+            {/* Email Input Field */}
             <TextField
               id="outlined-email-input"
               label="Email"
@@ -76,16 +92,25 @@ class LoginCard extends Component {
               variant="outlined"
               onChange={event => this.emailValid(event)}
             />
-
+            {/* Password */}
             <TextField
               id="outlined-password-input"
               label="Password"
-              className={classNames(localStyles.InputField)}
+              className={classNames(
+                localStyles.InputField,
+                this.state.isPasswordValid
+                  ? localStyles.InputCorrect
+                  : localStyles.InputIncorrect,
+                this.state.isInteracted
+                  ? localStyles.InputNull
+                  : localStyles.InputStatic
+              )}
               type="password"
               name="password"
               autoComplete="password"
               margin="normal"
               variant="outlined"
+              onChange={event => this.passwordValid(event)}
             />
           </div>
         </CardContent>
@@ -94,21 +119,20 @@ class LoginCard extends Component {
             control={<Checkbox className={classNames(localStyles.Checkbox)} />}
             label="Remember me"
           />
-          <Button variant="outlined" color="primary" href="./dashboard">
+          <Button variant="outlined" color="primary" href="./dashboard" style={{minWidth:"35%",background:"#27ff88"}}>
             Login
           </Button>
         </div>
 
-        <div className={classNames(localStyles.SocialCont)}>
-          <Typography component="p" className={classNames(localStyles.center)}>
-            Connect With
-          </Typography>
+        <span className={classNames(localStyles.SocialCont)}>
+          
+
           <img src={FbLogo} className={classNames(localStyles.SocialIcon)} />
           <img
             src={TwitterLogo}
             className={classNames(localStyles.SocialIcon)}
           />
-        </div>
+        </span>
       </Card>
     );
   }

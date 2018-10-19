@@ -7,7 +7,7 @@ import Grid from "@material-ui/core/Grid";
 
 const LoginPage = () => (
   <Grid container justify="center">
-    <Grid item xs={9} md={5} lg={3} style={{ marginTop: "10vh" }}>
+    <Grid item xs={9} md={5} lg={3} style={{ marginTop: "10%" }}>
       <Login />
     </Grid>
   </Grid>
