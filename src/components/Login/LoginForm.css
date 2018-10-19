@@ -1,3 +1,52 @@
-.title{
-    background: #ff00ff;
+.card {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.center {
+  text-align: center;
+}
+.ImgCont {
+  text-align: center;
+}
+.profileImg {
+  text-align: center;
+
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+}
+.InputField {
+  width: 90%;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+.InputIncorrect {
+  color: #d11e1e;
+}
+
+.BtnCont {
+  width: 90%;
+  margin: auto;
+  display: inline-block;
+  text-align: center;
+}
+.Checkbox {
+  color: #00ff00;
+}
+
+.SocialCont {
+  margin-top: 10px;
+  padding: 20px 0;
+  width: 100%;
+
+  text-align: center;
+  background: rgb(238, 238, 238);
+}
+.SocialIcon {
+  width: 40px;
+  display: inline;
 }
