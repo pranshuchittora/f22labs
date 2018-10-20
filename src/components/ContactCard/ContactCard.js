@@ -15,7 +15,7 @@ function ContactCard(props) {
       spacing={12}
     >
       <Grid item xs={3}>
-        <img className={classNames(localStyles.profileImg)} src={ProfileImg} />
+        <img className={classNames(localStyles.profileImg)} src={props.profileImg} />
       </Grid>
       <Grid item xs={7}>
         <h4 className={classNames(localStyles.name)}>{props.name}</h4>
@@ -23,7 +23,7 @@ function ContactCard(props) {
       </Grid>
       <Grid item xs={2}>
         <h5 className={classNames(localStyles.name,localStyles.center)}>...</h5>
-        <h6 className={classNames(localStyles.message,localStyles.center)}>10m</h6>
+        <h6 className={classNames(localStyles.message,localStyles.center)}>{props.time}</h6>
       </Grid>
     </Grid>
   );

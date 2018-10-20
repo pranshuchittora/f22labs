@@ -1,0 +1,15 @@
+.name {
+  font-family: "Roboto";
+  color: #e7e7e7;
+}
+
+.center {
+  text-align: center;
+}
+.containerCard
+{
+    border-bottom: 0.5px solid rgb(44, 44, 44);
+}
+.containerCard:hover{
+    background: #424242;
+}

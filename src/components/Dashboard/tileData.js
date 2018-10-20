@@ -1,37 +1,39 @@
-
-
-import React from 'react';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import StarIcon from '@material-ui/icons/Star';
-import SendIcon from '@material-ui/icons/Send';
-import MailIcon from '@material-ui/icons/Mail';
-import DeleteIcon from '@material-ui/icons/Delete';
-import ReportIcon from '@material-ui/icons/Report';
-
+import React from "react";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import WhatsappIcon from "../../Assets/SocialIcons/whatsapp.png";
+import GmailIcon from "../../Assets/SocialIcons/gmail.png";
+import SkypeIcon from "../../Assets/SocialIcons/skype.png";
+import SlackIcon from "../../Assets/SocialIcons/slack.png";
+import TelegramIcon from "../../Assets/SocialIcons/telegram.png";
+import AddIcon from "../../Assets/SocialIcons/add.png";
+import localStyles from "./tileData.css";
 export const mailFolderListItems = (
   <div>
     <ListItem button>
       <ListItemIcon>
-        <InboxIcon />
+        <img src={WhatsappIcon} className={localStyles.SocialImg} />
       </ListItemIcon>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <StarIcon />
+        <img src={GmailIcon} className={localStyles.SocialImg} />
       </ListItemIcon>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <SendIcon />
+        <img src={SkypeIcon} className={localStyles.SocialImg} />
       </ListItemIcon>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <DraftsIcon />
+        <img src={SlackIcon} className={localStyles.SocialImg} />
+      </ListItemIcon>
+    </ListItem>
+
+    <ListItem button>
+      <ListItemIcon>
+        <img src={TelegramIcon} className={localStyles.SocialImg} />
       </ListItemIcon>
     </ListItem>
   </div>
@@ -41,18 +43,9 @@ export const otherMailFolderListItems = (
   <div>
     <ListItem button>
       <ListItemIcon>
-        <MailIcon />
+        <img src={AddIcon} className={localStyles.SocialImg} />
       </ListItemIcon>
     </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <DeleteIcon />
-      </ListItemIcon>
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <ReportIcon />
-      </ListItemIcon>
-    </ListItem>
+   
   </div>
 );
