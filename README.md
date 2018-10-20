@@ -1,17 +1,35 @@
 # F22Labs UI Test
 Thanks for giving me an opportunity to prove myself.
 
+## How to run the code
 
+To install node_modules
+
+`yarn` 
+
+To run the dev server
+
+`yarn start`
+
+To build using webpack
+
+`yarn build`
+
+If port 3000 is already in use then 
+
+`fuser -i -k 3000/tcp` 
+
+-------
 ## Features
-[x]  Login Page
-[x]  Validation
-[x]  React-router
-[x]  Dashboard Layout
-[x]  Social Icons
-[x]  Second Drawer
-[x]  People Cards
-[x]  Mock Messages
-[x]  Webpack
+- [x]  Login Page
+- [x]  Validation
+- [x]  React-router
+- [x]  Dashboard Layout
+- [x]  Social Icons
+- [x]  Second Drawer
+- [x]  People Cards
+- [x]  Mock Messages
+- [x]  Webpack
 
 -------------
 
