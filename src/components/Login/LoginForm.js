@@ -119,14 +119,17 @@ class LoginCard extends Component {
             control={<Checkbox className={classNames(localStyles.Checkbox)} />}
             label="Remember me"
           />
-          <Button variant="outlined" color="primary" href="./dashboard" style={{minWidth:"35%",background:"#27ff88"}}>
+          <Button
+            variant="outlined"
+            color="primary"
+            href="./dashboard"
+            style={{ minWidth: "35%", background: "#27ff88" }}
+          >
             Login
           </Button>
         </div>
 
         <span className={classNames(localStyles.SocialCont)}>
-          
-
           <img src={FbLogo} className={classNames(localStyles.SocialIcon)} />
           <img
             src={TwitterLogo}

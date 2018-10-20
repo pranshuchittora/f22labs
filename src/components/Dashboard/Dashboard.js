@@ -1,127 +1,140 @@
-import localStyles from './Dashboard.css'
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import Hidden from '@material-ui/core/Hidden';
-import Divider from '@material-ui/core/Divider';
-import MenuIcon from '@material-ui/icons/Menu';
-import { mailFolderListItems, otherMailFolderListItems } from './tileData';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import { withStyles } from "@material-ui/core/styles";
+import Drawer from "@material-ui/core/Drawer";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import List from "@material-ui/core/List";
+import Typography from "@material-ui/core/Typography";
+import Divider from "@material-ui/core/Divider";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import { mailFolderListItems, otherMailFolderListItems } from "./tileData";
+import Grid from "@material-ui/core/Grid";
+import ContactCard from "../ContactCard/ContactCard";
 
 const drawerWidth = 240;
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    
+    height: "100vh",
     zIndex: 1,
-    overflow: 'hidden',
-    position: 'relative',
-    display: 'flex',
-    width: '100%',
+    overflow: "hidden",
+    position: "relative",
+    display: "flex"
   },
   appBar: {
-    position: 'absolute',
+    zIndex: theme.zIndex.drawer + 1,
+    transition: theme.transitions.create(["width", "margin"], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen
+    })
+  },
+  appBarShift: {
     marginLeft: drawerWidth,
-    [theme.breakpoints.up('md')]: {
-      width: `calc(100% - ${drawerWidth}px)`,
-    },
+    width: `calc(100% - ${drawerWidth}px)`,
+    transition: theme.transitions.create(["width", "margin"], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen
+    })
   },
-  navIconHide: {
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
-    },
+  menuButton: {
+    marginLeft: 12,
+    marginRight: 36
   },
-  toolbar: theme.mixins.toolbar,
+  hide: {
+    display: "none"
+  },
   drawerPaper: {
+    position: "relative",
+    whiteSpace: "nowrap",
     width: drawerWidth,
-    [theme.breakpoints.up('md')]: {
-      position: 'relative',
-    },
+    transition: theme.transitions.create("width", {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen
+    })
   },
+  drawerPaperClose: {
+    overflowX: "hidden",
+    transition: theme.transitions.create("width", {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen
+    }),
+    width: theme.spacing.unit * 7,
+    [theme.breakpoints.up("sm")]: {
+      width: theme.spacing.unit * 9
+    }
+  },
+  
   content: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
-    padding: theme.spacing.unit * 3,
-  },
+    backgroundColor: theme.palette.background.default
+  }
 });
 
-class ResponsiveDrawer extends React.Component {
+class MiniDrawer extends React.Component {
   state = {
-    mobileOpen: false,
+    open: false
   };
 
-  handleDrawerToggle = () => {
-    this.setState(state => ({ mobileOpen: !state.mobileOpen }));
+  handleDrawerOpen = () => {
+    this.setState({ open: true });
+  };
+
+  handleDrawerClose = () => {
+    this.setState({ open: false });
   };
 
   render() {
     const { classes, theme } = this.props;
 
-    const drawer = (
-      <div>
-        <div className={classes.toolbar} />
-        <Divider />
-        <List>{mailFolderListItems}</List>
-        <Divider />
-        <List>{otherMailFolderListItems}</List>
-      </div>
-    );
-
     return (
       <div className={classes.root}>
-        <IconButton
-              color="inherit"
-              aria-label="Open drawer"
-              onClick={this.handleDrawerToggle}
-              className={classes.navIconHide}
-            >
-              <MenuIcon />
+
+        <Drawer
+          variant="permanent"
+          classes={{
+            paper: classNames(
+              classes.drawerPaper,
+              !this.state.open && classes.drawerPaperClose
+            )
+          }}
+          open={this.state.open}
+        >
+          <div className={classes.toolbar}>
+            <IconButton onClick={this.handleDrawerClose}>
+              {theme.direction === "rtl" ? (
+                <ChevronRightIcon />
+              ) : (
+                <ChevronLeftIcon />
+              )}
             </IconButton>
-        <Hidden mdUp>
-          <Drawer
-            variant="temporary"
-            anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-            open={this.state.mobileOpen}
-            onClose={this.handleDrawerToggle}
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-          >
-            {drawer}
-          </Drawer>
-        </Hidden>
-        <Hidden smDown implementation="css">
-          <Drawer
-            variant="permanent"
-            open
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-          >
-            {drawer}
-          </Drawer>
-        </Hidden>
+          </div>
+          <Divider />
+          <List>{mailFolderListItems}</List>
+          <Divider />
+          <List>{otherMailFolderListItems}</List>
+        </Drawer>
         <main className={classes.content}>
           <div className={classes.toolbar} />
-          <Typography noWrap>{'You think water moves fast? You should see ice.'}</Typography>
+          <Grid container>
+            <Grid item xs={4} md={3} style={{ background: "#272727" }}>
+              <ContactCard name="Rahul Sharma" message="Can you send me those props." />
+            </Grid>
+          </Grid>
         </main>
       </div>
     );
   }
 }
 
-ResponsiveDrawer.propTypes = {
+MiniDrawer.propTypes = {
   classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired
 };
 
-export default withStyles(styles, { withTheme: true })(ResponsiveDrawer);
+export default withStyles(styles, { withTheme: true })(MiniDrawer);
