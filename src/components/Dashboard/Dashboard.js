@@ -14,8 +14,7 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import { mailFolderListItems, otherMailFolderListItems } from "./tileData";
 import Grid from "@material-ui/core/Grid";
-import ContactCard from "../ContactCard/ContactCard";
-
+import PeopleDrawer from '../PeopleDrawer/PeopleDrawer'
 const drawerWidth = 240;
 
 const styles = theme => ({
@@ -122,8 +121,8 @@ class MiniDrawer extends React.Component {
         <main className={classes.content}>
           <div className={classes.toolbar} />
           <Grid container>
-            <Grid item xs={4} md={3} style={{ background: "#272727" }}>
-              <ContactCard name="Rahul Sharma" message="Can you send me those props." />
+            <Grid item xs={4} md={3} style={{ background: "#272727",height:"100vh" }}>
+                <PeopleDrawer />
             </Grid>
           </Grid>
         </main>
