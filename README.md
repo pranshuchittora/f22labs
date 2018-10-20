@@ -1,4 +1,4 @@
-# F22Labs UI Test
+# F22Labs UI Test - React⚛️
 Thanks for giving me an opportunity to prove myself.
 
 ## How to run the code
@@ -41,6 +41,8 @@ If port 3000 is already in use then
 
 ![Dashboard](./Docs/Dashboard.png)
 
+-------
+
 ## How I approached the task
 - First I analysed all the components from the picture carefully.
 - Then I prepared a mindmap for it.
@@ -55,3 +57,4 @@ If port 3000 is already in use then
 - And much much more.
 
 
+Pranshu Chittora 🤞 
