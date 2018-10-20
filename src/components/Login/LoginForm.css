@@ -1,7 +1,4 @@
-body {
-  height: 100vh;
-  background: linear-gradient(180deg, #20da29 0%, #0fa016 50%, #ffffff 50%);
-}
+
 .card {
   text-align: center;
   align-items: center;
@@ -29,7 +26,6 @@ select:focus {
   outline: none;
 }
 
-
 .BtnCont {
   width: 90%;
   margin: auto;
@@ -42,18 +38,16 @@ select:focus {
 
 .SocialCont {
   margin-top: 10px;
-  padding: 20px 0;
   width: 100%;
 
   text-align: center;
-  background: rgb(238, 238, 238);
+  background: linear-gradient(135deg, rgb(202, 229, 255), rgb(229, 255, 157));
+  display: inline-block;
 }
 .SocialIcon {
-  width: 40px;
-  display: inline;
+  width: 48px;
+  padding: 5px;
 }
-
-
 
 .InputCorrect {
   background: #ddffe0;
@@ -61,9 +55,8 @@ select:focus {
 .InputIncorrect {
   background: #ffdede;
 }
-.InputStatic{
+.InputStatic {
   background: #ffffff;
 }
-.InputNull{
-
+.InputNull {
 }

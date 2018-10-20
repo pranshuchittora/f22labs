@@ -1,0 +1,19 @@
+.name {
+  font-family: "Roboto";
+  color: #e7e7e7;
+}
+.profileImg {
+  padding-left: 10px;
+  position: relative;
+  width: 70%;
+  margin: auto;
+  border-radius: 100%;
+}
+.message {
+  color: rgb(206, 206, 206);
+  font-family: "Roboto";
+  margin-top: -10px;
+}
+.center {
+  text-align: center;
+}
