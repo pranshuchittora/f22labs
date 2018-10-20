@@ -3,17 +3,38 @@ import Grid from "@material-ui/core/Grid";
 import classNames from "classnames";
 import ProfileImg from "../../Assets/profile.jpeg";
 import localStyles from "./PeopleDrawer.css";
+
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import InputAdornment from '@material-ui/core/InputAdornment';
+
+import TextField from '@material-ui/core/TextField';
 import ContactCard from "../ContactCard/ContactCard";
 import John from "../../Assets/john.jpg";
-
 import Lionel from "../../Assets/finch.jpg";
 import Root from "../../Assets/root.jpg";
 import Shaw from "../../Assets/shaw.jpeg";
 import Elias from "../../Assets/elias.jpg";
 import Joss from "../../Assets/joss.jpg";
+import SearchIcon from '../../Assets/search.png'
+
 function PeopleDrawer(props) {
   return (
     <div>
+      <div style={{background:"#222",textAlign:"center",height:100}}>
+      <TextField
+        style={{height:40,border:"2px solid #555",marginTop:30,borderRadius:"20px"}}
+        id="input-with-icon-textfield"
+        variant="outlined"
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+            <img src={SearchIcon} style={{width:30,height:30}} />
+            </InputAdornment>
+          ),
+        }}
+      />
+      </div>
       <ContactCard
         profileImg={John}
         name="John Reese"

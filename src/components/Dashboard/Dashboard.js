@@ -3,18 +3,15 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
-import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import { mailFolderListItems, otherMailFolderListItems } from "./tileData";
 import Grid from "@material-ui/core/Grid";
-import PeopleDrawer from '../PeopleDrawer/PeopleDrawer'
+import PeopleDrawer from "../PeopleDrawer/PeopleDrawer";
+import MenuDrawer from '../MenuDrawer/MenuDrawer'
 const drawerWidth = 240;
 
 const styles = theme => ({
@@ -50,6 +47,7 @@ const styles = theme => ({
   },
   drawerPaper: {
     position: "relative",
+    background: "#000000",
     whiteSpace: "nowrap",
     width: drawerWidth,
     transition: theme.transitions.create("width", {
@@ -68,7 +66,7 @@ const styles = theme => ({
       width: theme.spacing.unit * 9
     }
   },
-  
+
   content: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.default
@@ -93,7 +91,6 @@ class MiniDrawer extends React.Component {
 
     return (
       <div className={classes.root}>
-
         <Drawer
           variant="permanent"
           classes={{
@@ -121,8 +118,21 @@ class MiniDrawer extends React.Component {
         <main className={classes.content}>
           <div className={classes.toolbar} />
           <Grid container>
-            <Grid item xs={4} md={3} style={{ background: "#272727",height:"100vh" }}>
-                <PeopleDrawer />
+            <Grid
+              item
+              xs={3}
+              md={2}
+              style={{ background: "#1b1b1b", height: "100vh" }}
+            >
+              <MenuDrawer />
+            </Grid>
+            <Grid
+              item
+              xs={4}
+              md={3}
+              style={{ background: "#151515", height: "100vh" }}
+            >
+              <PeopleDrawer />
             </Grid>
           </Grid>
         </main>
