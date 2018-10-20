@@ -3,7 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import classNames from "classnames";
 import MenuCard from "../MenuCard/MenuCard";
 import Typography from "@material-ui/core/Typography";
-import Divider from '@material-ui/core/Divider'
+import Divider from "@material-ui/core/Divider";
 import localStyles from "./MenuDrawer.css";
 
 function PeopleDrawer(props) {
@@ -11,7 +11,7 @@ function PeopleDrawer(props) {
     <div>
       <div style={{ background: "#2b2b2b", textAlign: "center", height: 100 }}>
         <Typography variant="h4" style={{ color: "#ddd", paddingTop: 30 }}>
-        F22Labs
+          F22Labs
         </Typography>
       </div>
       <MenuCard name="#general" count="11" />
@@ -23,7 +23,6 @@ function PeopleDrawer(props) {
       <MenuCard name="#intros" count="11" />
 
       <MenuCard name="#Marketing" count="11" />
-
     </div>
   );
 }
